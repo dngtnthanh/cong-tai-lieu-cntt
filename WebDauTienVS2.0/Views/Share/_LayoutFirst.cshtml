@@ -26,7 +26,8 @@
     <script src="~/Scripts/MicrosoftMvcValidation.debug.js" type="text/javascript"></script>
     <!-- Khai báo thư viện main menu     -->
     <link href="~/Content/CSS3%20Menu_files/css3menu1/styleMenu.css" rel="stylesheet" />
-    <script>                // //lưu vị trí thanh cuộn scroll khi load trang
+    <script>
+    // //lưu vị trí thanh cuộn scroll khi load trang
         document.addEventListener("DOMContentLoaded", function (event) {
             var scrollpos = localStorage.getItem('scrollpos');
             if (scrollpos) window.scrollTo(0, scrollpos);
@@ -48,7 +49,7 @@
                     THƯ VIỆN - THÔNG TIN
                 </div>
                 <div style="float: right; padding-right: 20px; color: #ffffff; font-size: 18px; text-decoration: none">
-                    @if (Session["Permission"].ToString() != "3") 
+                    @if (Session["Permission"].ToString() != "3")
                     {
                         <a href="@Url.Action("LoginHome", "Login")" style="text-decoration: none; color: #ffffff"><span><i class="fas fa-sign-in-alt"></i> Đăng nhập</span></a>
                         <a href="@Url.Action("DKTaiKhoan", "Account")" style="text-decoration: none; color: #ffffff"><span><i class="fas fa-user-plus"></i> Đăng ký</span></a>
@@ -86,71 +87,71 @@
             </div>
         </div>
         @RenderSection("Slider", true)
-    <div id="Contents">
-        <div class="SubMenuTrai">
-            <ul>
-                <li style="background-color: #a9a9e1">
-                    @Html.ActionLink("Trang chủ", "index", "Home")
-                </li>
-                <li>
-                    @Html.ActionLink("Giới thiệu", "GioiThieu", "Home")
-                    <ul class="SubMenu2">
-                        <li>@Html.ActionLink("Về MIT", "veMIT", "Home")</li>
-                    </ul>
-                </li>
-                <li>
-                    <hr id="duongKeMenu" />
-                    @Html.ActionLink("Bộ môn", "boMon", "Home")
-                    <ul class="SubMenu2">
-                        <li>
-                            @Html.ActionLink("Công nghệ thông tin", "cntt", "Home")
-                        </li>
-                        <li>
-                            @Html.ActionLink("Sư phạm toán học", "spToan", "Home")
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <hr id="duongKeMenu" />
-                    <a href="http://tuyensinh.dthu.edu.vn/">Tuyển sinh 2021</a>
-                </li>
+        <div id="Contents">
+            <div class="SubMenuTrai">
+                <ul>
+                    <li style="background-color: #a9a9e1">
+                        @Html.ActionLink("Trang chủ", "index", "Home")
+                    </li>
+                    <li>
+                        @Html.ActionLink("Giới thiệu", "GioiThieu", "Home")
+                        <ul class="SubMenu2">
+                            <li>@Html.ActionLink("Về MIT", "veMIT", "Home")</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <hr id="duongKeMenu" />
+                        @Html.ActionLink("Bộ môn", "boMon", "Home")
+                        <ul class="SubMenu2">
+                            <li>
+                                @Html.ActionLink("Công nghệ thông tin", "cntt", "Home")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Sư phạm toán học", "spToan", "Home")
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <hr id="duongKeMenu" />
+                        <a href="http://tuyensinh.dthu.edu.vn/">Tuyển sinh 2021</a>
+                    </li>
 
-                <li>
-                    <hr id="duongKeMenu" />
-                    <a href="http://thuvien.dthu.edu.vn/pages/cms/wpid-home.html">Thư viện</a>
-                </li>
-                <li>
-                    <hr id="duongKeMenu" />
-                    <a href="https://www.dthu.edu.vn/lists.aspx?idmn=179"> Việc làm sinh viên</a>
-                </li>
-                <li>
-                    <hr id="duongKeMenu" />
-                    @Html.ActionLink("Xem tài liệu", "TaiLieu", "Home")
-                </li>
-                <li>
-                    <hr id="duongKeMenu" />
-                    @Html.ActionLink("Diễn đàn hỏi đáp lập trình", "index", "DienDan")
-                </li>
-            </ul>
-        </div>
-        <div id="Content">
-            @RenderBody()
-        </div>
-        <a href="http://congtailieudientudthu.somee.com/DienDan" style="float: left; margin-left: 20px"><img src="~/Content/anh/diendan.PNG" width="300" height="150" /></a>
+                    <li>
+                        <hr id="duongKeMenu" />
+                        <a href="http://thuvien.dthu.edu.vn/pages/cms/wpid-home.html">Thư viện</a>
+                    </li>
+                    <li>
+                        <hr id="duongKeMenu" />
+                        <a href="https://www.dthu.edu.vn/lists.aspx?idmn=179"> Việc làm sinh viên</a>
+                    </li>
+                    <li>
+                        <hr id="duongKeMenu" />
+                        @Html.ActionLink("Xem tài liệu", "TaiLieu", "Home")
+                    </li>
+                    <li>
+                        <hr id="duongKeMenu" />
+                        @Html.ActionLink("Diễn đàn hỏi đáp lập trình", "index", "DienDan")
+                    </li>
+                </ul>
+            </div>
+            <div id="Content">
+                @RenderBody()
+            </div>
+            <a href="http://congtailieudientudthu.somee.com/DienDan" style="float: left; margin-left: 20px"><img src="~/Content/anh/diendan.PNG" width="300" height="150" /></a>
 
-        <iframe style="margin-left: 50px" width="560" height="315" src="https://www.youtube.com/embed/2I8ai91BkNM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe style="margin-left: 50px" width="560" height="315" src="https://www.youtube.com/embed/2I8ai91BkNM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-        <div id="HotNews">
-            <h3>
-                Tài liệu Hot
-            </h3>
-            <a href="#">Thông tin 1</a>
-            <a href="#">Thông tin 2</a>
-            <a href="#">Thông tin 3</a>
-            <a href="#">Thông tin 4</a>
-            <a href="#">Thông tin 5</a>
+            <div id="HotNews">
+                <h3>
+                    Tài liệu Hot
+                </h3>
+                <a href="#">Thông tin 1</a>
+                <a href="#">Thông tin 2</a>
+                <a href="#">Thông tin 3</a>
+                <a href="#">Thông tin 4</a>
+                <a href="#">Thông tin 5</a>
+            </div>
         </div>
-    </div>
         <div id="Bottom">
 
             <div id="huongDanHoTro">
@@ -186,7 +187,7 @@
             <div style="padding-left: 20px; padding-bottom: 20px">
                 @if (Session["Permission"].ToString() == "3")
                 {
-                        <p>Account: @Session["Username"] <br /> Permission: @Session["Permission"]</p>                   
+                    <p>Account: @Session["Username"] <br /> Permission: @Session["Permission"]</p>
                 }
             </div>
             <div id="veChungToi">
@@ -205,5 +206,35 @@
             </div><br /><br>
         </div>
     </div>
+    <!-- Messenger Plugin chat Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Plugin chat code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+        var chatbox = document.getElementById('fb-customer-chat');
+        chatbox.setAttribute("page_id", "111249483959284");
+        chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+    <!-- Your SDK code -->
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                xfbml: true,
+                version: 'v12.0'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
 </body>
 </html>
