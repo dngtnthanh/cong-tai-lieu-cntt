@@ -1,0 +1,98 @@
+﻿@{
+    Layout = "~/Views/Share/_LayoutFirst.cshtml";
+}
+
+<h2 id="Tua">Thảo luận</h2>
+@section Slider{
+    <div id="SliderGioiThieu">
+    </div>
+}
+@*@using WebDauTienVS2._0.Models;*@
+@model PagedList.IPagedList<WebDauTienVS2._0.Models.QuestionsContain>
+@using PagedList.Mvc;
+@*<button id="btXuLyPhai">
+        <i class="fas fa-question"></i> @Html.ActionLink("Đặt câu hỏi", "AskQuestion", "DienDan")
+    </button>*@
+<br />
+<b style="float:left">Câu hỏi:</b>
+<br />
+<hr style="width: 780px" />
+<div class="MucChat">
+    <div class="TaiKhoanChat">
+        <div>
+            <img class="avatar-user" src="~/Uploads/Avarta/@ViewBag.Avatar" /><p class="full-name-user"> @ViewBag.fullName <br /><i class="far fa-thumbs-up"></i> ? <i class="far fa-thumbs-down dislike"></i> ? <i class="fas fa-trophy Cups"></i> ? <i class="fas fa-signal online"></i></p>
+        </div>
+        <div style="line-height: 14px; float: left;">
+            @if (ViewBag.ModiData != null)
+            {
+                <br /><i style="font-size: 12px; float: right">Chỉnh sửa @ViewBag.ModiData</i>
+            }
+            <br /><i style="font-size: 12px; float: right"> Ngày đăng: @ViewBag.CreaData</i>
+        </div><br />
+    </div>
+    <div class="TieuDeNoiDung">
+        <div style="color: #0026ff">
+            @ViewBag.Title
+        </div>
+    </div>
+    <div>
+        @Html.Raw(ViewBag.Contents)
+    </div><br />
+</div>
+<b style="float: left">Các câu trả lời hay nhất: </b>
+<div>
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {            
+            <div class="MucChat">
+                <hr style="width: 780px" />                
+                <div class="TaiKhoanChat">
+                    <div>
+                        <img class="avatar-user" src="~/Uploads/Avarta/@item.C_Avatar" /><p class="full-name-user"> @Html.ActionLink(item.C_Fullname, "Profile", "DienDan", new { User = item.C_Username }, new { @class = "link" }) <br /><i class="far fa-thumbs-up"></i> @item.C_Likes <i class="far fa-thumbs-down dislike"></i> @item.C_Dislike <i class="fas fa-trophy Cups"></i> @item.C_Cups <i class="fas fa-signal online"></i> </p>
+                    </div>
+                    <div style="line-height: 14px; float: left;">
+                        @if (item.C_ModiData != null)
+                        {
+                            <br /><i style="font-size: 12px; float: right">Chỉnh sửa: @item.C_ModiData</i>
+                        }
+                        <br /><i style="font-size: 12px; float: right"> Ngày đăng: @item.C_CreaData</i>
+                    </div><br />
+                </div>
+                <div style="float: left; width: 570px; min-height: 100px">
+                    <div>
+                        @item.C_Contents
+                    </div><br />
+                </div>
+                <div style="float: right; margin-right: 19px">
+                    @Html.ActionLink("Like", "UserLike", "DienDan", new { Like_id = item.C_ID_Q , User = item.C_Username }, new { @class = "link-like" })
+                    <p style="float: left; margin-right: 10px"><i class="far fa-thumbs-up"></i> @item.C_Liked </p>
+                </div>
+            </div>
+        }
+    }
+</div>
+<br />
+@using (Html.BeginForm("ViewQuestion", "DienDan"))
+{
+    if (Session["Username"].ToString() == "Login")
+    {
+        <b style="color: #ff0000; float: left; margin-top: 100px">Vui lòng đăng nhập để gửi câu trả lời của bạn</b>
+    }
+    else
+    {
+        <table style="padding-top: 100px">
+            <tr>
+                <td valign="top"><img class="avatar-user" src="~/Uploads/Avarta/@Session["Avarta"]" /><p class="full-name-user">@Session["Fullname"]<br /><i class="far fa-thumbs-up"></i> @Session["Likes"].ToString() <i class="far fa-thumbs-down dislike"></i> @Session["Dislikes"].ToString() <i class="fas fa-trophy Cups"></i> @Session["Cups"].ToString() <i class="fas fa-signal online"></i> </p></td>
+                <td><textarea name="Reply" required placeholder="Nhập câu trả lời của bạn" cols="65" rows="4"></textarea></td>
+            </tr>
+        </table>
+        <input id="btXuLyPhai" type="submit" value="Gửi câu trả lời" />
+    }
+
+}
+
+<div id="phanTrang" style="float: left">
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("ViewQuestion", new { _id = page }))
+</div>

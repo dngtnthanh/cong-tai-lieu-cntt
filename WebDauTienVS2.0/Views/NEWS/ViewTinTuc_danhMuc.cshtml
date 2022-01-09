@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "ViewTinTuc_danhMuc";
+    Layout = "~/Views/Share/_LayoutMainControl.cshtml";
+}
+
+<h2 id="Tua">Tin tức phân loại theo danh mục</h2>
+@model WebDauTienVS2._0.Models.NEWS
+@using WebDauTienVS2._0.Models;
+<div>
+<br /><br /><br /><br />
+Danh sách tin tức hiển thị trên Trang chủ:<br /><br />
+    @using (Html.BeginForm())
+{  
+    <table id="Bang" style="background-color: #e2f5f3">
+      
+        <tr><th>ID</th><th>TÊN</th><th>TÊN FILE</th><th>XEM</th><th>SỬA</th><th>XÓA</th></tr>
+        @foreach (NEWS m in ((ViewBag.Pages) as IEnumerable<NEWS>))
+        {
+            <tr>
+                <td>@m.ID_NEW</td>
+                <td>@m.Title</td>
+                <td>@m.image</td>                
+                <td>@Html.ActionLink("Xem", "View_TinTuc", "NEWS", new { id = m.ID_NEW }, new { @class = "link" })</td>
+                <td>@Html.ActionLink("Edit", "Edit_Page", "admin", new { id = m.ID_NEW }, new { @class = "link" }) </td>
+                <td>
+                    @Html.ActionLink("Xóa", "DeletePage", "admin", new { id = m.ID_NEW },
+                                     new { onClick = "return confirm('Xóa thật')" })
+                </td>
+
+            </tr>
+        }
+    </table>
+}   
+   
+</div>

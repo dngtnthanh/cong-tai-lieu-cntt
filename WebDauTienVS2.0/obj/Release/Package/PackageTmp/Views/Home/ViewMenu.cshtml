@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "ViewMenu";
+    Layout = "~/Views/Share/_LayoutFirst.cshtml";
+}
+@section Slider{
+    <div id="SliderGioiThieu">
+    </div> 
+}
+<h2>ViewMenu</h2>
+<h2 id="Tua">Thông tin menu</h2>
+@model WebDauTienVS2._0.Models.Menus
+
+<table id="Bang" style="background-color: #e2f5f3">
+    <tr>
+        <td>ID_MN: </td><td><b>@Html.DisplayFor(Model => Model.ID_MN)</b></td>
+    </tr>
+    <tr>
+        <td>Lable: </td><td><b>@Html.DisplayFor(Model => Model.Lable)</b></td>
+    </tr>
+    <tr>
+        <td>UserAdd: </td><td><b>@Html.DisplayFor(Model => Model.Username)</b></td>
+    </tr>
+    <tr>
+        <td>Url: </td><td><b>@Html.DisplayFor(Model => Model.UrLink)</b></td>
+    </tr>
+</table>
+<br />
+@Html.ActionLink("Trở về", "TaiLieu", new { @class = "link"})

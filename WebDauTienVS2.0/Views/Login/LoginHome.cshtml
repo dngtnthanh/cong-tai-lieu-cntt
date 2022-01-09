@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "LoginHome";
+    Layout = "~/Views/Share/_LayoutLogin.cshtml";
+}
+<h2 class="tua-dang-nhap">LOGIN</h2><br />
+@using (Html.BeginForm("LoginHome", "Login")) { 
+    <table cellspacing="20px">
+        <tr><td>Tên đăng nhập:</td><td><input type="text" name="Username" size="30" required placeholder="Nhập tên đăng nhập" ></input></td></tr>
+        <tr><td>Mật khẩu:</td><td><input type="password" name="Password" size="30" required placeholder="Nhập mật khẩu của bạn" /></td></tr>
+        <tr>
+            <td><span class="note" id="result"></span><br />               
+            </td>
+            <td>
+                <br /><button id="btXuLyPhai" type="submit" onclick="return checkNull();">Đăng nhập</button>
+            </td>
+        </tr>
+
+        <tr>
+            <td>@Html.ActionLink("Quên mật khẩu", "QuenMK", "Account")</td>
+            <td>@Html.ActionLink("Đăng ký tài khoản ngay", "DKTaiKhoan", "Account")</td>
+        </tr>
+    </table>
+    <p style="color: #ff0000">@ViewBag.ThongBao</p>
+}
+    
+    
+

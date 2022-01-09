@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Views/Share/_LayoutMainControl.cshtml";
+}
+<button id="btXuLyTrai">
+    @Html.ActionLink("Trở về", "DanhSachNews", "NEWS")
+</button>
+<h2 id="Tua">Thêm tin tức</h2>
+@model WebDauTienVS2._0.Models.NEWS
+@using (@Html.BeginForm("Add_News", "NEWS"))
+{
+    <table id="Bang" style="border: 0px">
+            <tr>
+                <td>Danh mục:</td><td> @ViewBag.danhmuc</td>
+            </tr>
+            <tr>
+                <td>Tiêu đề:</td><td><textarea name="Title" rows="2" cols="75"></textarea></td>
+            </tr>
+            <tr>
+                <td>Tóm tắt:</td><td><textarea name="Sumary" rows="5" cols="75"></textarea></td>
+            </tr>
+    </table>
+    <textarea class="ckeditor" cols="80" id="editor1" name="editor1" rows="7" >
+        @Html.Raw(ViewBag.context)      
+    </textarea>
+    <br />
+    <br />
+    <input id="btXuLyPhai" type="submit" value="THÊM TIN" />
+}
+

@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Edit_Avarta";
+    Layout = "~/Views/Share/_LayoutMainControl.cshtml";
+}
+@model WebDauTienVS2._0.Models.Acount
+@using WebDauTienVS2._0.Models;
+<h2 id="Tua">Thay đổi ảnh đại diện</h2>
+<button id="btXuLyTrai">
+   <i class="fas fa-arrow-left"></i> @Html.ActionLink("Trở về", "SettingUser", "admin")
+</button><br /><br /><br />
+@using (Html.BeginForm("Edit_Avarta", "admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <table id="Bang">
+        <tr><td>Username: @ViewBag.Username</td></tr>
+        <tr><td>Email: @ViewBag.Email</td></tr>
+        <tr><td>Tên đầy đủ: @ViewBag.FullName</td></tr>
+    </table><br />
+    <b>Ảnh đại diện hiện tại:</b><br /><br />
+    <img src="~/Uploads/Avarta/@ViewBag.loadAnh" width="100" height="100" /><br /><br />
+    <input type="file" name="file" />
+    <input type="submit" value="OK" />
+    @ViewBag.Thongbao
+        
+}
+
+<br /><br />

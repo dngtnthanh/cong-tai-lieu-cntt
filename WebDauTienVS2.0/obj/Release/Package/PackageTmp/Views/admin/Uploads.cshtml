@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Uploads";
+    Layout = "~/Views/Share/_LayoutMainControl.cshtml";
+}
+
+
+<h2 id="Tua">Thêm tài liệu</h2>
+<button id="btXuLyTrai">
+    <i class="fas fa-arrow-left"></i> @Html.ActionLink("Trở về", "ViewPageltems", "admin")
+</button>
+<br />
+<br />
+<br />
+@using (Html.BeginForm("Uploads", "admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <table>
+        <tr>
+            <td>Danh mục tài liệu: </td>
+            <td>@ViewBag.mntl</td>
+        </tr>
+        <tr>
+            <td>Tiêu đề tài liệu: </td>
+            <td><input type="text" name="Title" required placeholder="Chú ý: không được để trống" size="65" /></td>
+        </tr>
+        <tr>
+            <td style="vertical-align:top">Mô tả nội dung tài liệu: </td>
+            <td><textarea type="text" name="Sumary" placeholder="VD: Hướng dẫn các thành phần cơ bản về ..." cols="50" rows="4"></textarea></td>
+        </tr>
+        <tr>
+            <td>Tải lên tài liệu: </td>
+            <td><input type="file" name="file" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Các định dạng hỗ trợ: pdf, doc, docx, ppt, pptx, jpg, png</td>
+        </tr>
+        <tr>
+            <td></td><td><input id="btXuLyPhai" type="submit" value="Tải lên" /></td>
+        </tr>
+    </table>
+
+    <br />
+    <br />
+    @ViewBag.Thongbao
+}
+<br />
+<br />

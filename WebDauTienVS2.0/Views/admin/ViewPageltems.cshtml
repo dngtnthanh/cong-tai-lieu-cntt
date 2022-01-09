@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Pageltems";
+    Layout = "~/Views/Share/_LayoutMainControl.cshtml";
+}
+
+<h2 id="Tua">Quản lý tài liệu</h2>
+@model WebDauTienVS2._0.Models.PageItem
+@using WebDauTienVS2._0.Models;
+<button id="btXuLyTrai" style="font-size: 20px">
+    <span><i class="fas fa-file-upload"></i> @Html.ActionLink("Thêm tài liệu", "Uploads", "admin")</span>
+</button>
+<button id="btXuLyPhai" style="font-size: 20px">
+    <span><i class="fas fa-clipboard-check"></i> @Html.ActionLink("Danh sách tài liệu chưa duyệt", "KiemDuyetTaiLieu", "KiemDuyet")</span>
+</button>
+<div>
+    <br /><br /><br /><br />
+    @Html.Raw(Session["QuanLyTaiLieuAdmin"])<br /><br />
+    Danh sách tài liệu hiển thị trên Trang chủ:<br /><br />
+    @using (Html.BeginForm())
+    {
+        @*<div style="float: left; font-size: 20px">
+            @Html.DropDownList("ID_P", new SelectList(ViewBag.Pages, "ID_P", "Title", ViewBag.Page))
+            <button id="btXuLyPhai" type="submit">Tìm</button>*@
+        <!--</div><br /><br />-->
+        <table id="Bang" style="background-color: #e2f5f3">
+            <tr><th>ID</th><th>TÊN</th><th>TÊN FILE</th><th>XEM</th><th>SỬA</th><th>XÓA</th></tr>
+            @foreach (PageItem m in ((ViewBag.Pages) as IEnumerable<PageItem>))
+            {
+                <tr>
+                    <td>@m.ID_P</td>
+                    <td>@m.Title</td>
+                    <td>@m.Name_File</td>
+                    <td>@Html.ActionLink("Xem", "ViewTaiLieu_Admin_Page", new { id = m.ID_P }, new { @class = "link" })</td>
+                    <td>@Html.ActionLink("Edit", "Edit_Page", "admin", new { id = m.ID_P }, new { @class = "link" }) </td>
+                    <td>
+                        @Html.ActionLink("Xóa", "DeletePage", "admin", new { id = m.ID_P },
+                                         new { onClick = "return confirm('Xóa thật')" })
+                    </td>
+
+                </tr>
+            }
+        </table>
+    }
+
+</div>

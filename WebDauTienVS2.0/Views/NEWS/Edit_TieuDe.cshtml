@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Edit_TieuDe";
+    Layout = "~/Views/Share/_LayoutMainControl.cshtml";
+}
+<button id="btXuLyTrai">
+    @Html.ActionLink("Trở về", "DanhSachNews", new { @class = "link"})
+</button>
+<h2 id="Tua">Chỉnh sửa tiêu đề và tóm tắt</h2>
+@model WebDauTienVS2._0.Models.NEWS
+@using (Html.BeginForm("Edit_TieuDe", "NEWS"))
+{ 
+<table id="Bang">
+    <tr><td>Tiêu đề:</td><td><textarea name="Title" rows="2" cols="90">@Model.Title</textarea></td></tr>
+    <tr><td>Tóm tắt:</td><td><textarea name="Sumary" rows="5" cols="90">@Model.Sumary</textarea></td></tr>
+    <tr><td></td><td><button id="btXuLyPhai" type="submit">XÁC NHẬN </button></td></tr>
+</table>   
+}

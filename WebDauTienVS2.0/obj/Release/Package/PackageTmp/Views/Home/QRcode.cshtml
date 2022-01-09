@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "QRcode";
+    Layout = "~/Views/Share/_LayoutChiaSeFile.cshtml";
+}
+
+<h2>QRcode</h2>
+<p>Hãy chia sẽ mã QR code tài liệu này cho người khác</p>
+@model WebDauTienVS2._0.Models.PageItem
+
+
+<button id="btXuLyTrai">
+   <i class="fas fa-arrow-left"></i> @Html.ActionLink("Trở về", "DSTaiLieu", new { @class = "link"})
+</button>
+<table id="Bang" style="background-color: #e2f5f3">
+    <tr>
+        <td>Tên tài liêu: </td><td><b>@Html.DisplayFor(Model => Model.Title)</b></td>
+    </tr>
+    <tr>
+        <td>Tên file: </td><td><b>@Html.DisplayFor(Model => Model.Name_File)</b></td>
+    </tr>
+    <tr>
+        <td>Người đăng: </td><td><b>@Html.DisplayFor(Model => Model.Username)</b></td>
+    </tr>
+    <tr>
+        <td>Liên hệ: </td>
+    </tr><br />
+</table>
+<img src="~/Uploads/QRcode/@Html.DisplayFor(Model => Model.QRcode)" />
+<br />
+<embed src="~/Uploads/@Html.DisplayFor(Model => Model.ID_File)" width="800px" height="900px" />

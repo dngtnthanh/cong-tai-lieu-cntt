@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Share/_LayoutFirst.cshtml";
+}
+@section Slider{
+    <div id="SliderGioiThieu">
+    </div> 
+}
+<h2 id="Tua">Tra cứu tài liệu</h2>
+@using WebDauTienVS2._0.Models;
+@model PagedList.IPagedList<WebDauTienVS2._0.Models.PageItem>
+@using PagedList.Mvc;
+
+@using (Html.BeginForm("timKiem", "TimKiem", FormMethod.Get)) { 
+    <table>
+        <tr>
+            <td valign="top"><input name="Key" type="text" size="25" placeholder="Nhập từ khóa tài liệu" /></td>     <td><button type="submit" id="btXuLyPhai" style="font-size: 11px"><i class="fas fa-search"></i> Tìm kiếm</button></td>
+        </tr>
+    </table>
+    <br /><br />   
+    if (@ViewBag.slkq != null) { 
+        <span><i>Có @ViewBag.slkq kết quả tìm kiếm</i></span>
+    } 
+    if (@ViewBag.KiemTra != "0")
+    {
+         <table id="Bang" style="background-color: #e2f5f3">
+            <tr><th>ID</th><th>TÊN</th><th>FILE</th><th>XEM</th></tr>
+            @foreach (PageItem m in ((ViewBag.Pages) as IEnumerable<PageItem>))
+            {
+                <tr>
+                    <td>@m.ID_P</td>
+                    <td>@m.Title</td>
+                    <td>@m.Name_File</td>
+                    <td>@Html.ActionLink("Xem", "ViewTaiLieu_Page", "Home", new { id = m.ID_P }, new { @class = "link" })</td>
+                </tr>
+            }
+        </table>
+    } 
+ }   
+        

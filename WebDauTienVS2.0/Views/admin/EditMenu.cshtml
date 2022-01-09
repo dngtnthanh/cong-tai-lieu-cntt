@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Chỉnh sửa menu";
+    Layout = "~/Views/Share/_LayoutMainControl.cshtml";
+}
+
+<h2 id="Tua">Chỉnh sửa Menu</h2>
+@model WebDauTienVS2._0.Models.Menus
+@using WebDauTienVS2._0.Models;
+@using (Html.BeginForm("EditMenu", "admin"))
+{
+    <table id="Bang">
+        <tr><td>ID_MN:</td><td><b>@Html.TextBoxFor(Model => Model.ID_MN)</b></td></tr>
+        <tr><td>Lable:</td><td><b>@Html.TextBoxFor(Model => Model.Lable)</b></td></tr>
+        <tr><td>Pos:</td><td><b>@Html.TextBoxFor(Model => Model.Pos)</b></td></tr>
+        <tr><td>Url:</td><td><b>@Html.TextBoxFor(Model => Model.UrLink)</b></td></tr>
+        <tr>
+            <td>Menu cha:</td>
+            <td>@Html.DropDownList("ID_Parent", new SelectList(ViewBag.parents, "ID_MN", "Lable", ViewBag.parent))</td>
+        </tr>
+        <tr><td></td><td><button type="submit">XÁC NHẬN </button></td></tr>
+    </table>
+}
+

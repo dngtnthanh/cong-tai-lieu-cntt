@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "View_TinTuc_Home";
+    Layout = "~/Views/Share/_LayoutFirst.cshtml";
+}
+@section Slider{
+    <div id="SliderGioiThieu">
+    </div>
+}
+@using WebDauTienVS2._0.Models;
+@model WebDauTienVS2._0.Models.NEWS
+
+<h3 style="color: #ff0000">@Model.Title</h3>
+<br />
+Người đăng: @Model.Username - Ngày đăng: @Model.CreaData
+<br />
+<br />
+<img style="width: 550px; height: 350px" src="~/Uploads/NEWS/@Model.image" />
+<br />  
+@Model.Sumary
+<br />
+<br />
+@Html.Raw(Model.Contents)
+<div class="fb-comments" data-href="http://congtailieudientudthu.somee.com/NEWS/View_TinTuc_Home/@Model.ID_NEW" data-width="750" data-numposts="5"></div>

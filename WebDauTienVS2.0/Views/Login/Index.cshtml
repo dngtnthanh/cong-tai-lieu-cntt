@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Share/_LayoutLogin.cshtml";
+}
+
+<h2 class="tua-dang-nhap">Login</h2>
+@using (Ajax.BeginForm("Index", new AjaxOptions { UpdateTargetId = "result", HttpMethod = "Post" })) { 
+    <table cellspacing="20px">
+        <tr><td>Username:</td><td><input type="text" name="Username" size="30" required placeholder="Nhập tên đăng nhập" /></td></tr>
+        <tr><td>Password:</td><td><input type="password" name="Password" size="30" required placeholder="Nhập mật khẩu của bạn" /></td></tr>
+        <tr>
+            <td></td>
+            <td><span class="note" id="result"></span><br />
+                <button id="btXuLyPhai" type="submit" onclick="return checkNull();">Login</button>
+            </td>
+        </tr>
+    </table>
+    <p style="color: #ff0000">@ViewBag.ThongBao</p>
+    
+}

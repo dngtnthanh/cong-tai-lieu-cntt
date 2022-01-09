@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/Admin.css" rel="stylesheet" />
+    <!--Khai báo thư viện ICON online sử dụng từ fontawesome.com -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- Khai báo thư viện Jquery     -->
+    <script src="~/Scripts/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
+    <script src="~/Scripts/MicrosoftMvcAjax.js" type="text/javascript"></script>
+    <script src="~/Scripts/MicrosoftMvcValidation.debug.js" type="text/javascript"></script>
+    <script src="~/Scripts/ckeditor/ckeditor.js" type="text/javascript"></script>
+    <script src="~/Scripts/ckeditor/config.js" type="text/javascript"></script>
+    <script src="~/Scripts/ckeditor/styles.js" type="text/javascript"></script>
+    <!-- Khai báo thư viện css Menu tự động CSS3 menu     -->
+    <link href="~/Content/CSS3%20Menu_files/css3menu1/styleMenu.css" rel="stylesheet" />
+    <script>        //lưu vị trí thanh cuộn csroll khi load trang
+        document.addEventListener("DOMContentLoaded", function (event) {
+            var scrollpos = localStorage.getItem('scrollpos');
+            if (scrollpos) window.scrollTo(0, scrollpos);
+        });
+
+        window.onbeforeunload = function (e) {
+            localStorage.setItem('scrollpos', window.scrollY);
+        };
+    </script>
+</head>
+<body>
+    <div id="Wapper">
+        <div id="Banner">
+            <a href="#"> <span><i style="float: left; font-size: 25px" class="fas fa-cogs"></i>HỆ THỐNG QUẢN LÝ</span> <i class="fas fa-ellipsis-v"></i> <i  class="fas fa-envelope-square"></i> <i  class="far fa-bell"></i> <i class="far fa-question-circle"></i> </a>
+        </div> 
+        <div id="Contents">
+            <div id="MainControl">                
+                <div id="Dashboard">
+                    <div id="User"><span><i class="fas fa-user"></i>Chào, <img width="50px" height="50px" src="~/Uploads/Avarta/@Session["Avatar"].ToString()"/> @Session["Username"].ToString()</span></div>
+                    <a href="@Url.Action("Index", "admin")"><span><i class="fas fa-tachometer-alt"></i> Thống kê</span></a>
+                    <a href="@Url.Action("MenuList", "admin")"><span><i class="fab fa-medium"></i> Tùy chỉnh Menu</span></a>
+                    <a href="@Url.Action("ViewPageltems", "admin")"><span><i class="fas fa-database"></i> Quản lý tài liệu</span></a>
+                    <a href="@Url.Action("KiemDuyetTaiLieu", "KiemDuyet")"><span><i class="fas fa-clipboard-check"></i> <b style="color: #ff0000">@Session["ThongKeDuyet"]</b> Kiểm duyệt tài liệu</span></a>
+                    <a href="@Url.Action("DanhSachNews", "NEWS")"><span><i class="far fa-newspaper"></i> Cập nhật tin tức</span></a>
+                    <a href="@Url.Action("SettingUser", "admin")"><span><i class="fas fa-user-shield"></i> Quản lý tài khoản</span></a>
+                    <br /><br /><br />
+                    <a href="@Url.Action("Index", "Login")"><span><i class="fas fa-sign-out-alt"></i> Đăng xuất</span></a>
+                </div>
+            </div>
+            <div id="Content">
+                <div>
+                    @RenderBody()
+                </div> 
+            </div>          
+        </div>
+        <div id="Bottom">
+            <div style="float:left; padding-left: 20px">
+                Tài khoản: @Session["Username"].ToString() - Quyền: @Session["Permission"].ToString()<br />
+            </div><br /><br />
+            <hr  width="410px" style="font-size: medium; margin-left: 330px"/><br />
+           <span><i class="fas fa-copyright"></i>   Copyright 2021 | được phát triển bởi Dương Tấn Thành. Email: duongthanh6959@gmail.com</span> 
+        </div>            
+   </div>
+</body>
+</html>

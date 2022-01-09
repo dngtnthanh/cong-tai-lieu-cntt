@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Uploads";
+    Layout = "~/Views/Share/_LayoutMainControl.cshtml";
+}
+
+<h2>Uploads</h2>
+<button id="btXuLyTrai">
+   <i class="fas fa-arrow-left"></i> @Html.ActionLink("Trở về", "DanhSachNews", "NEWS")
+</button><br /><br /><br />
+@using (Html.BeginForm("Uploads", "NEWS", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <input type="file" name="file" />
+    <input type="submit" value="OK" />
+    @ViewBag.Thongbao
+}
+<br /><br />

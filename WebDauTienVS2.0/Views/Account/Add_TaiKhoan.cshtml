@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Add_TaiKhoan";
+    Layout = "~/Views/Share/_LayoutMainControl.cshtml";
+}
+<div id="btXuLyTrai">
+    @Html.ActionLink("Trở về", "SettingUser", "admin")
+</div>
+<h2 id="Tua">Thêm tài khoản mới</h2>
+@model WebDauTienVS2._0.Models.Acount
+@if (Session["Permission"].ToString() == "1") { 
+    using (Html.BeginForm("Add_TaiKhoan", "Account"))
+{
+    <table id="Bang">  
+        <tr><td>Username:</td><td><b><input name="Username" type="text" required placeholder="Nhập tên đăng nhập" /></b></td></tr>
+        <tr><td>Password:</td><td><b><input name="Password" type="password" required placeholder="Điền mật khẩu của bạn" /></b></td></tr>
+        <tr><td>Nhập lại Password:</td><td><b><input name="Password2" type="password" required placeholder="Nhập lại mật khẩu" /></b></td></tr>
+        <tr><td>Email:</td><td><b><input name="Email" type="email" required placeholder="Hãy nhập vào Email người dùng" size="40" /></b></td></tr>
+        <tr><td></td><td><button id="btXuLyPhai" type="submit" onclick="return confirm('Xác nhận thêm Tài khoản?')">THÊM TÀI KHOẢN</button></td></tr>
+    </table><br /><br />@ViewBag.ThongBao
+}
+}else {
+    <b style="color: #ff0000; font-size: 18px">@ViewBag.ThongBao</b>
+}
+
+  

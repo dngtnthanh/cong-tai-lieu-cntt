@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "DongGopTaiLieu";
+    Layout = "~/Views/Share/_LayoutFirst.cshtml";
+}
+@section Slider{
+    <div id="SliderGioiThieu">
+    </div>
+}
+<script src='https://www.google.com/recaptcha/api.js' type="text/javascript"></script>
+<button id="btXuLyTrai">
+    <i class="fas fa-arrow-left"></i> @Html.ActionLink("Trở về", "TaiLieu", "Home")
+</button>
+<h2 id="Tua">BẠN ĐỌC ĐÓNG GÓP TÀI LIỆU</h2>
+
+@using (Html.BeginForm("DongGopTaiLieu", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    if (ViewBag.MaSoTL == null) { 
+        <div>
+        <table >
+            <tr>
+                <td>Danh mục tài liệu: </td><td>@ViewBag.mntl</td>
+            </tr>  
+            <tr>
+                <td>Tiêu đề tài liệu: </td><td><input type="text" name="Title" required placeholder="Chú ý: không được để trống" size="65"/></td>
+            </tr>
+            <tr>
+                <td style="vertical-align:top">Mô tả nội dung tài liệu: </td><td><textarea type="text" name="Sumary" placeholder="VD: Hướng dẫn các thành phần cơ bản về ..." cols="50" rows="4"></textarea></td>
+            </tr>
+            <tr>
+                <td>Tải lên tài liệu: </td><td><input type="file" name="file" /></td>
+            </tr>      
+            <tr>
+                <td></td><td>Các định dạng hỗ trợ: pdf, doc, docx, ppt, pptx, jpg, png</td>
+            </tr>
+        </table>
+        <br /><br />
+        @using (Html.BeginForm("DongGopTaiLieu", "Home", FormMethod.Post))
+        {
+            <div class="g-recaptcha" data-sitekey="6Le6gdccAAAAANksPbojjozSXtOz4Jo2mu2j6mx3"></div><br />
+            <p style="color: #ff0000">@ViewBag.Thongbao</p><br />
+            <input id="btXuLyTrai" type="submit" value="Tải lên" /> 
+        }
+    </div><br /><br />
+    <span style=" font-size:20px;margin:20px 0;padding:20px; color: #ff0000">
+        @ViewData["Message"]
+    </span>
+    }    
+    <br />
+    @ViewBag.CamOn<br />
+    <div id="MaSoTL">
+        @ViewBag.MaSoTL @ViewBag.ip_p
+    </div><br />
+    <div style="font-weight: bold">
+        @Html.Raw(ViewBag.ChuY) 
+    </div>
+
+
+
+}
+
+

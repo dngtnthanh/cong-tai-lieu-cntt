@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Cập nhật tài khoản";
+    Layout = "~/Views/Share/_LayoutMainControl.cshtml";
+}
+
+<h2 id="Tua">Quản lý tài khoản</h2>
+<br />
+<br />
+<br />
+@model WebDauTienVS2._0.Models.Acount
+@using WebDauTienVS2._0.Models;
+<button id="btXuLyTrai">
+    @Html.ActionLink("Thêm tài khoản", "Add_TaiKhoan", "Account")
+</button>
+<br />
+<br />
+<br />
+
+<table id="Bang">
+    <tr id="TuaLish">
+        <td>
+            <span><i class="fas fa-users-cog"></i> Username</span>
+        </td>
+        <td>
+            Fullname
+        </td>
+        <td>
+            <span><i class="fas fa-at"></i>Email </span>
+        </td>
+        <td>
+            Permisstion
+        </td>
+        <td>
+            Avarta
+        </td>
+        <td>
+            Sửa ảnh
+        </td>
+        <td>
+            Lock
+        </td>
+        <td>
+            Bật/Tắt True/Fasle
+        </td>
+
+
+    </tr>
+    @foreach (Acount m in (ViewBag.accout as IEnumerable<Acount>))
+    {
+        <tr>
+            <td>
+                <span><i class="fas fa-male"></i> @m.Username</span>
+            </td>
+            <td>
+                @m.Fullname
+            </td>
+            <td>
+                @m.Email
+            </td>
+            <td>
+                @m.Permission
+            </td>
+            <td>
+                <img src="~/Uploads/Avarta/@m.Avatar" width="80" height="80" />
+            </td>
+            <td>
+                @Html.ActionLink("Thay đổi", "Edit_Avarta", "admin", new { id = m.ID_User }, new { @class = "link" })
+            </td>
+            <td>
+                @m.Lock
+            </td>
+            <td>
+                @Html.ActionLink("Bật/Tắt", "ThayDoiQuyenHT", "admin", new { id = m.ID_User }, new { @class = "link" })
+            </td>
+            @ViewBag.ThongBao
+        </tr>
+    }
+</table>

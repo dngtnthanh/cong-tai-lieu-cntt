@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "View_TinTuc";
+    Layout = "~/Views/Share/_LayoutMainControl.cshtml";
+}
+<button id="btXuLyTrai">
+    @Html.ActionLink("Trở về", "DanhSachNews", "NEWS", new { @class = "link" })
+</button>
+<h2 id="Tua">Tin tức hiển thị trên trang chủ</h2>
+@using WebDauTienVS2._0.Models;
+@model NEWS
+<h3 style="color: #ff0000">@Model.Title</h3>
+<br />
+Người đăng: @Model.Username - Ngày đăng: @Model.CreaData
+<br />
+<br />
+<img style="width: 550px; height: 350px" src="~/Uploads/NEWS/@Model.image" />
+<br />
+@Model.Sumary
+<br />
+<br />
+@Html.Raw(Model.Contents)
+
+
+

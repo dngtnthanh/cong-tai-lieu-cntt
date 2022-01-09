@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "View_TaiLieu";
+    Layout = "~/Views/Share/_LayoutMainControl.cshtml";
+}
+
+<h2 id="Tua">
+    Kiểm duyệt tài liệu số: @ViewBag.soTaiLieu
+</h2>
+@model WebDauTienVS2._0.Models.PageItem
+@using WebDauTienVS2._0.Models;
+<button id="btXuLyPhai"><i class="fas fa-file-signature"></i> @Html.ActionLink("Duyệt nội dung này", "Duyet_TaiLieu", "KiemDuyet", new { id = @Html.DisplayFor(Model => Model.ID_P) }, new { onClick = "return confirm('XÁC NHẬN dữ liệu sẽ được hiển thị trên trang chủ')" })</button>
+<button id="btXuLyTrai">
+<i class="fas fa-arrow-left"></i> @Html.ActionLink("Trở về", "KiemDuyetTaiLieu", "KiemDuyet", new { @class = "link"})
+</button><br /><br /><br />
+<br />
+
+<embed src="~/Uploads/@Html.DisplayFor(Model => Model.ID_File)" width="800px" height="900px" /><br />
+<table id="Bang" style="background-color: #e2f5f3; width: 300px">
+    <tr>
+        <td>Tên tài liêu: </td><td><b>@Html.DisplayFor(Model => Model.Title)</b></td>        
+    </tr>
+    <tr>
+        <td>Tên File: </td><td><b>@Html.DisplayFor(Model => Model.Name_File)</b></td>        
+    </tr>
+    <tr>
+        <td>Người gửi: </td><td>@Html.DisplayFor(Model => Model.Username)</td>
+    </tr>
+    <tr>
+        <td>Số điện thoại:</td>
+    </tr>
+</table>

@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="NEWS" Class="NEWSDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=NEWS;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="NEWSConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Menus" Member="Menus">
+    <Type Name="Menus">
+      <Column Name="ID_MN" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Parent" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Pos" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Lable" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="UrLink" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="OrderKey" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Usertest" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Hide" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Menus_PageItem" Member="PageItems" ThisKey="ID_MN" OtherKey="ID_MN" Type="PageItem" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Menus_NEWS" Member="Menus_NEWs">
+    <Type Name="Menus_NEW">
+      <Column Name="ID_MN_NEW" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Parent" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Pos" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Lable" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="UrLink" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="OrderKey" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Hide" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Menus_NEW_NEWS" Member="NEWS" ThisKey="ID_MN_NEW" OtherKey="ID_MN_NEW" Type="NEWS" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NEWS" Member="NEWS">
+    <Type Name="NEWS">
+      <Column Name="ID_NEW" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID_MN_NEW" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Sumary" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Contents" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CreaData" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="ModiData" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="OrderKey" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Hide" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="Menus_NEW_NEWS" Member="Menus_NEW" ThisKey="ID_MN_NEW" OtherKey="ID_MN_NEW" Type="Menus_NEW" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PageItems" Member="PageItems">
+    <Type Name="PageItem">
+      <Column Name="ID_P" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID_MN" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Sumary" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Contents" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CreaData" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="ModiDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="OrderKey" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="UserTest" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Hide" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ID_File" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Name_File" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="QRcode" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Menus_PageItem" Member="Menus" ThisKey="ID_MN" OtherKey="ID_MN" Type="Menus" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Acount_PageItem" Member="Acount" ThisKey="Username" OtherKey="Username" Type="Acount" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Statistical" Member="Statisticals">
+    <Type Name="Statistical">
+      <Column Name="ID_TF" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Traffic" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Online" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Solutions" Member="Solutions">
+    <Type Name="Solution">
+      <Column Name="ID_S" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID_Q" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Reply" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="Avarta" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="CreaData" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Questions" Member="Questions">
+    <Type Name="Question">
+      <Column Name="ID_Q" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Parent" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Contents" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CreaData" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="ModiData" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Hide" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="fullName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Avatar" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="Users_Liked" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Liked" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Acounts" Member="Acounts">
+    <Type Name="Acount">
+      <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID_User" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="Fullname" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Permission" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Lock" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Avatar" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Likes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cups" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Dislikes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Introduce_Yourself" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="[Confirm]" Member="Confirm" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[Join]" Member="Join" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Association Name="Acount_PageItem" Member="PageItems" ThisKey="Username" OtherKey="Username" Type="PageItem" />
+    </Type>
+  </Table>
+</Database>

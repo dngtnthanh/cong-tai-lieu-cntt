@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "DKTaiKhoan";
+    Layout = "~/Views/Share/_LayoutLogin.cshtml";
+}
+
+<h2 class="tua-dang-nhap">Đăng ký tài khoản</h2>
+<br />
+<br />
+<br />
+
+@model WebDauTienVS2._0.Models.Acount
+
+@using (Html.BeginForm("DKTaiKhoan", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<table cellspacing="20px">
+    <tr>
+        <td>Tên đăng nhập: </td>
+        <td><input name="Username" type="text" required placeholder="vd: nguyenvana765" /></td>
+    </tr>
+    <tr>
+        <td>Mật khẩu: </td>
+        <td><input name="Password" type="password" required placeholder="" /></td>
+    </tr>
+    <tr>
+        <td>Nhập lại mật khẩu: </td>
+        <td><input name="Password2" type="password" required placeholder="" /></td>
+    </tr>
+    <tr>
+        <td>Họ tên đầy đủ: </td>
+        <td><input name="Fullname" type="text" required placeholder="vd: Nguyễn Văn A" /></td>
+    </tr>
+    <tr>
+        <td>Email: </td>
+        <td><input name="Email" type="email" required placeholder="vd: nguyenvana@gmail.com" size="30" /></td>
+    </tr>
+    <tr>
+        <td>Chọn ảnh đại diện: </td><td><input type="file" name="file" /></td>
+    </tr>
+    <tr>
+        <td></td><td>Định dạng hỗ trợ: <b>.jpg  .jpeg  .png  .gif</b></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><button id="btXuLyPhai" type="submit" onclick="return confirm('Xác nhận đăng ký tài khoản')">Đăng ký</button></td>
+    </tr>
+    <tr>
+        <td>@Html.ActionLink("Đăng nhập ngay bây giờ", "LoginHome", "Login")</td>
+    </tr>
+
+</table>
+
+}
+<br />
+<div style="color: #00ff21; padding-left: 100px">
+    @ViewBag.ThongBao
+</div>
+
+

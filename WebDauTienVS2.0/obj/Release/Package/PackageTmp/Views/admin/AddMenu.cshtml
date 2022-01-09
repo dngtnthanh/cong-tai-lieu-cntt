@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Thêm menu";
+    Layout = "~/Views/Share/_LayoutMainControl.cshtml";
+}
+
+<h2 id="Tua">Chỉnh sửa Menu / Thêm Menu</h2>
+@model WebDauTienVS2._0.Models.Menus
+@using WebDauTienVS2._0.Models;
+@using (Ajax.BeginForm("AddMenu", "admin", new AjaxOptions { UpdateTargetId = "result", HttpMethod = "Post" }))
+{
+    <table id="Bang">
+        <tr><td>ID_MN:</td><td><b>@Html.TextBox("ID_MN", (Object)ViewBag.idnew)</b></td></tr>
+        <tr><td>Lable:</td><td><b>@Html.TextBox("Lable")</b></td></tr>
+        <tr><td>Pos:</td><td><b>@Html.TextBox("Pos")</b></td></tr>
+        <tr><td>Url:</td><td><b>@Html.TextBox("UrLink")</b></td></tr>
+        <tr>
+            <td>
+                @ViewBag.Thongbao
+            </td>
+        </tr>
+        <tr>
+            <td>Menu cha:</td>
+            <td>@Html.DropDownList("ID_Parent", new SelectList(ViewBag.parents, "ID_MN", "Lable", ViewBag.parent))</td>
+        </tr>
+        <tr><td> </td><td><button id="btXuLyTrai" name="file" value="OK" type="submit" onclick="return confirm('Xác nhận thêm Menu?')">XÁC NHẬN </button></td></tr>
+    </table>
+    <span style="color: #ff0000" id="result"></span>
+}

@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "KiemDuyetTaiLieu";
+    Layout = "~/Views/Share/_LayoutMainControl.cshtml";
+}
+
+<h2 id="Tua">Danh sách tài liệu cần kiểm duyệt</h2>
+@{
+    ViewBag.Title = "KiemDuyetTaiLieu";
+    Layout = "~/Views/Share/_LayoutMainControl.cshtml";
+}
+
+
+@model WebDauTienVS2._0.Models.PageItem
+@using WebDauTienVS2._0.Models;
+<button id="btXuLyTrai">
+   <i class="fas fa-arrow-left"></i> @Html.ActionLink("Trở về", "ViewPageltems", "admin")
+</button><br /><br /><br />
+@using (Html.BeginForm("KiemDuyetTaiLieu", "KiemDuyet")) 
+{
+    <table id="Bang">      
+        <tr><th>ID</th><th>TÊN TÀI LIỆU</th><th>TÊN FILE</th><th>Hiện / Ẩn<br />Trua / False</th><th>KIỂM DUYỆT</th><th>XEM</th><th>SỬA</th><th>XÓA</th></tr>
+        @foreach (PageItem m in ((ViewBag.Pages) as IEnumerable<PageItem>))
+        {
+            <tr>
+                <td>@m.ID_P</td>
+                <td>@m.Title</td>
+                <td>@m.Name_File</td>
+                <td>@m.Hide</td>
+                <td>@Html.ActionLink("Duyệt", "Duyet_TaiLieu", "KiemDuyet", new { id = m.ID_P }, new { onClick = "return confirm('XÁC NHẬN dữ liệu sẽ được hiển thị trên trang chủ')" })</td>
+                <td>@Html.ActionLink("View", "View_TaiLieu", "KiemDuyet", new { id = m.ID_P }, new { @class = "link" })</td>
+                <td>@Html.ActionLink("Edit", "Edit_TaiLieu", new { id = m.ID_P }, new { @class = "link" }) </td>
+                <td>
+                    @Html.ActionLink("Xóa", "Delete_TaiLieu", "KiemDuyet", new { id = m.ID_P },
+                                     new { onClick = "return confirm('Xóa thật')" })
+                </td>
+            </tr>
+        }
+    </table>
+}

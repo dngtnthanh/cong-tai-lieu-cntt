@@ -1,0 +1,588 @@
+﻿* {
+    margin: 0px auto;
+    padding: 0px;
+}
+
+ul {
+    list-style: none;
+}
+
+#Body {
+    font-family: Arial,Verdana, 'Times New Roman';
+    background-color: #b9cfd7;
+}
+
+.link {
+    color: #3366ff;
+}
+
+.note {
+    color: red;
+}
+
+#TopPage {
+    width: 1000px;
+    height: 35.5px;
+    background-color: #262261;
+    font-size: 12px;
+}
+
+#LienHe {
+    width: 1000px;
+    height: 35.5px;
+    color: white;
+    padding: 10px;
+}
+
+#Slider {
+    width: 1000px;
+    min-height: 400px;
+    float: left;
+    background-image: url(../Content/anh/ma975.jpg);
+    background-size: cover;
+    background-attachment: scroll;
+}
+
+#SliderGioiThieu {
+    width: 1000px;
+    min-height: 130px;
+    background-image: url(../Content/anh/2021462737528.png);
+    float: left;
+    background-size: cover;
+}
+
+#Banner {
+    width: 1000px;
+    min-height: 100px;
+    background-color: #b9cfd7;
+    font-family: FontAwesome,Helvetica Neue Condensed Black, Tahoma, 'Times New Roman';
+    text-shadow: 2px 2px 2px grey;
+}
+
+    #Banner b {
+        float: right;
+        padding-right: 10px;
+        padding-top: 10px;
+    }
+
+#wapper {
+    width: 1000px;
+    min-height: 450px;
+    margin: 0px auto;
+    background-color: white;
+}
+
+#TimKiem {
+    float: right;
+}
+
+#MainMenu {
+    width: 1000px;
+    height: 38px;
+    display: block;
+    background-color: #adafb3;
+}
+
+#Contents {
+    width: auto;
+    min-height: 300px;
+    float: left;
+    background-color: white;
+    border-top: 10px solid white;
+}
+
+.SubMenuTrai {
+    width: 165px;
+    min-height: 100px;
+    float: left;
+    background-color: #d7dfe2;
+    padding-left: 0px;
+    padding-top: 0px;
+    border: 1px solid #3a376f;
+}
+
+    .SubMenuTrai a {
+        text-decoration: none;
+        padding: 10px;
+        text-align: left;
+        display: block;
+        position: relative;
+        color: #3a376f;
+        font-weight: bold;
+    }
+
+.SubMenu2 a {
+    background-color: #c4d1e8;
+    color: red;
+    display: none;
+}
+
+.SubMenuTrai a:hover {
+    background-color: LightGray;
+    color: red;
+}
+
+#SubMenuTop {
+    width: 165px;
+    height: 30px;
+    text-align: center;
+    color: white;
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+#Content {
+    width: 765px;
+    min-height: 400px;
+    float: left;
+    background-color: white;
+    border: 5px solid LightGray;
+    border-color: white;
+    padding-left: 20px;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 35px;
+    margin-bottom: 50px;
+}
+
+.ThongBao {
+    width: 340px;
+    height: 350px;
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 20px;
+    margin-bottom: 16px;
+    background-color: #e2f5f3;
+}
+
+.ThongBaoTop {
+    font-weight: bold;
+    min-height: 50px;
+    color: #262261;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    margin-bottom: 5px;
+    display: -webkit-box;
+    max-height: 3rem;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    -webkit-line-clamp: 3;
+    line-height: 1.2rem;
+    font-size: 16px;
+}
+
+    .ThongBaoTop a {
+        text-decoration: none
+    }
+
+.ThongBaoGach {
+    width: 338px;
+    font-size: 5px;
+    color: red;
+    float: left;
+    margin-top: 65px;
+    position: absolute;
+}
+
+.ThongBaoNoiDung {
+    height: 98px;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 1;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.7;
+}
+
+#HotNews {
+    width: 970px;
+    min-height: 70px;
+    float: left;
+    background-color: #d7dfe2;
+    text-align: center;
+    border: 5px solid LightGray;
+    padding: 10px;
+    border-color: white;
+    display: block;
+}
+
+    #HotNews a {
+        padding: 20px;
+        text-decoration: none;
+        background-color: #184e9e;
+        color: white;
+        width: 100px;
+        min-height: 100px;
+    }
+
+        #HotNews a:hover {
+            color: red;
+        }
+
+#KetQuaTuyen {
+    width: 300px;
+    min-height: 180px;
+    background-image: url(../Content/anh/diendan.PNG);
+    float: left;
+    background-size: cover;
+    margin-bottom: 20px;
+    margin-left: 20px;   
+}
+
+#TuyenSinh {
+    width: 720px;
+    min-height: 300px;
+    background-image: url(../Content/anh/s1.jpg);
+    float: right;
+    background-size: cover;
+    margin-bottom: 20px;
+}
+
+#Bottom {
+    width: 1000px;
+    min-height: 300px;
+    background-color: #242e64;
+    color: white;
+    float: left;
+}
+
+    #Bottom a {
+        color: #f79797
+    }
+
+        #Bottom a:hover {
+            color: #fa8264
+        }
+
+#veChungToi {
+    width: 1000px;
+    text-align: center;
+    margin-bottom: 70px;
+    min-height: 100px;
+}
+
+#chinhSachChung {
+    margin-top: 10px;
+    width: 240px;
+    min-height: 200px;
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: left;
+}
+
+#huongDanHoTro {
+    margin-top: 10px;
+    width: 240px;
+    min-height: 200px;
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: left;
+}
+
+#thongTin {
+    margin-top: 10px;
+    width: 240px;
+    min-height: 200px;
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: left;
+}
+
+#dangKyNhanTin {
+    margin-top: 10px;
+    width: 240px;
+    min-height: 200px;
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: left;
+}
+
+#logo {
+    width: 250px;
+    height: 100px;
+    float: left;
+}
+
+#duongKeMenu {
+    font-size: 1px;
+    width: 135px;
+    margin-left: 10px;
+}
+
+#duongKeBottom {
+    font-size: 2px;
+    width: 400px;
+    margin-left: 300px;
+    margin-right: 300px;
+    margin-bottom: 70px;
+    float: left;
+}
+
+#Tua {
+    text-align: center;
+    color: #5967bd;
+    font-weight: bold;
+    font-size: 30px;
+    padding-bottom: 50px;
+}
+
+#TuaLish {
+    font-weight: bold;
+    color: #5967bd;
+}
+
+#Bang {
+    border: 1px solid #000000;
+    padding: 0px;
+    margin: 0px;
+    width: 750px;
+}
+
+    #Bang td {
+        padding: 2px;
+    }
+
+    #Bang th {
+        border: 1px solid #000000;
+        background-color: #8ca3ea;
+        text-align: center;
+    }
+
+#btXuLyTrai a {
+    text-decoration: none
+}
+
+#btXuLyPhai a {
+    text-decoration: none
+}
+
+#btXuLyTrai {
+    display: block;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #b6e2ee;
+    float: left;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+#btXyLyTrai a:hover {
+    background-color: #ec6e6e;
+}
+
+#btXuLyPhai {
+    display: block;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #b6e2ee;
+    float: right;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+#btXyLyPhai a:hover {
+    background-color: #ec6e6e;
+}
+
+#MaSoTL {
+    font-size: 30px;
+    font-weight: bold;
+    display: block;
+    float: left;
+    color: red;
+}
+
+#phanTrang {
+    width: 1000px;
+    height: 30px;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+    #phanTrang li {
+        list-style: none;
+        float: left;
+        padding: 3px 5px;
+        margin: 5px;
+        border: 1px solid #ccc;
+    }
+
+        #phanTrang li:active {
+            background-color: #3366FF;
+        }
+
+            #phanTrang li:active a {
+                color: white;
+            }
+
+#wapperLogin {
+    width: 500px;
+    min-height: 600px;
+    background-color: LightGray;
+    margin: 0px auto;
+    padding-right: 700px;
+    padding-top: 130px;
+    padding-left: 400px;
+}
+
+#Log {
+    display: block;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.tua-dang-nhap {
+    text-align: center;
+    font-size: 26px;
+    color: #262261;
+    background-color: #cdbae5;
+    border-radius: 5px;
+}
+
+.link {
+    text-decoration: none
+}
+
+.full-name-user {
+    color: #2f3aeb;
+    border: 1px solid #000000;
+    border-left: 0px;
+    padding-left: 10px;
+    float: left;
+    background-color: #e1e2f9;
+    padding-right: 10px;
+    font-size: 14px;
+    line-height: 25px;
+}
+
+.avatar-user {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #000000;
+    float: left;
+}
+
+.dislike {
+    padding-left: 10px;
+}
+
+.Cups {
+    padding-left: 10px;
+}
+
+.online {
+    float: right;
+    padding-top: 5px;
+    color: #206e0c;
+}
+
+.link-like {
+    float: right;
+    text-decoration: none;
+}
+
+.TaiKhoanChat {
+    float: left;
+    width: 210px;
+    height: 100px;
+    margin-top: -1.5px;
+}
+
+.MucChat {
+    float: left;
+    width: 800px;
+    min-height: 100px;
+}
+
+.TieuDeNoiDung {
+    /*    style ="float: left; width: 570px; min-height: 100px"*/
+    float: left;
+    width: 570px;
+    min-height: 100px;
+    margin-right: 20px
+}
+
+#profile {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    background-color: #cecbdc;
+    border-radius: 10px;
+    width: auto;
+    height: 75px;
+    border: solid 1px #000000;
+}
+
+#profile-anhTenEmail {
+    width: 500px;
+    float: left;
+}
+
+#profile-Tua {
+    font-weight: 700;
+    text-align: center;
+    display: block;
+    background-color: azure;
+    color: #7062c0;
+    margin-bottom: 30px;
+}
+
+#profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+    float: left;
+    margin-left: 20px;
+    border: solid 1px #000000;
+}
+
+#profile-name {
+    font-size: 30px;
+    float: left;
+    padding-top: 33px;
+    padding-left: 10px;
+    font-weight: 800;
+    color: #262261;
+    font-family: 'Times New Roman';
+}
+
+#profile-email {
+    font-style: italic;
+    float: left;
+    padding-left: 10px
+}
+
+#introduce {
+    float: left;
+}
+
+/* Style.css | http://localhost:1089/Content/Style.css */
+
+#achievements {
+    width: 500px;
+    font-size: 17px;
+    float: left;
+    margin-top: 0px;
+    background-color: #bdcce8;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid;
+    margin-left: 140px;
+}
+
+    #achievements i {
+        padding-left: 15px
+    }

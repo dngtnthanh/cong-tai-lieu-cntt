@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Edit_Page";
+    Layout = "~/Views/Share/_LayoutMainControl.cshtml";
+}
+
+<h2>Edit_Page</h2>
+@model WebDauTienVS2._0.Models.PageItem
+@using (Html.BeginForm("Edit_Page", "admin"))
+{ 
+<table id="Bang">
+    <tr><td>ID_P:</td><td><b>@Html.TextBox("ID_P")</b></td></tr>
+    <tr><td>Title:</td><td><b>@Html.TextBoxFor(Model => Model.Title)</b></td></tr>
+  
+    <tr><td></td><td><button type="submit">XÁC NHẬN </button></td></tr>
+</table>
+        <br /><br />
+    @Html.ActionLink("Trở về", "ViewPageltems", new { @class = "link"})
+}

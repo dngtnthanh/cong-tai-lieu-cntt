@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "ViewTaiLieu_Admin_Page";
+    Layout = "~/Views/Share/_LayoutMainControl.cshtml";
+}
+
+<h2 id="Tua">Thông tin tài liệu</h2>
+@model WebDauTienVS2._0.Models.PageItem
+@using WebDauTienVS2._0.Models;
+<button id="btXuLyTrai">
+    <i class="fas fa-arrow-left"></i> @Html.ActionLink("Trở về", "ViewPageltems", new { @class = "link"})
+</button><br /><br /><br />
+<table id="Bang" style="background-color: #e2f5f3">
+    <tr>
+        <td>Tên tài liệu: </td><td><b>@Html.DisplayFor(Model => Model.Name_File)</b></td>
+    </tr>
+    <tr>
+        <td>Tên người gửi: </td><td>@Html.DisplayFor(Model => Model.Username)</td>
+    </tr>
+    <tr>
+        <td>SĐT người gửi</td>
+    </tr>
+</table>
+<br />
+
+<embed src="~/Uploads/@Html.DisplayFor(Model => Model.ID_File)" width="800px" height="900px" /><br />
+

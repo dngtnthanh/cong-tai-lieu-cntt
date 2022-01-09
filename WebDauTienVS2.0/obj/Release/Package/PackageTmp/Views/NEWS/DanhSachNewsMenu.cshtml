@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "DanhSachNewsMenu";
+    Layout = "~/Views/Share/_LayoutMainControl.cshtml";
+}
+
+<h2 id="Tua">Xem danh sách tất cả tin tức</h2>
+@using WebDauTienVS2._0.Models;
+
+@model PagedList.IPagedList<WebDauTienVS2._0.Models.NEWS>
+@using PagedList.Mvc;
+@Html.Raw(Session["menu"])
+@using (@Html.BeginForm("DanhSachNewsMenu", "NEWS"))
+{
+    <button id="btXuLyTrai">@Html.ActionLink("Thêm tin mới", "Add_News", "NEWS")<br /></button>       
+    <table id="Bang">
+        <tr><th>ID</th><th>Title</th><th>Image</th><th>Edit ảnh</th><th>VIEW</th><th>EDIT TIÊU    ĐỀ / Tóm tắt</th><th>EDIT NỘI DUNG</th><th>DELETE</th></tr>
+        @foreach (NEWS m in ((ViewBag.news) as IEnumerable<NEWS>))
+        {
+    <tr>
+        <td>@m.ID_NEW</td>
+        <td>@m.Title</td>
+        <td><img width="80px" height="80px" src="~/Uploads/NEWS/@m.image"/></td>
+        <td>@Html.ActionLink("Đổi ảnh", "Uploads", "NEWS", new { id = m.ID_NEW }, new { @class = "link" })</td>
+        <td>@Html.ActionLink("Xem", "View_TinTuc", "NEWS", new { id = m.ID_NEW }, new { @class = "link" })</td>
+        <td>@Html.ActionLink("TiêuĐề/ TómTắt", "Edit_TieuDe", "NEWS", new { id = m.ID_NEW }, new { @class = "link" }) </td>
+        <td>@Html.ActionLink("Nội dung", "EditNews", "NEWS", new { id = m.ID_NEW }, new { @class = "link" }) </td>
+        <td>
+            @Html.ActionLink("Xóa Page", "Delete_TinTuc", "NEWS", new { id = m.ID_NEW },
+                             new { onClick = "return confirm('Xóa thật')" })
+        </td>
+    </tr>
+        }
+    </table>
+}
+<div id="phanTrang" style="float: left">
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { id = page }))
+</div>

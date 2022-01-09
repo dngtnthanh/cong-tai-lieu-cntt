@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@Page.Title</title>
+    @RenderSection("head", required: false)
+    <meta name="viewport" content="width=device-width" />
+    <title> @ViewBag.Title</title>
+    <link href="~/Content/Style.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Menu.css" rel="stylesheet" type="text/css" />
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.js">
+    </script>
+    <!-- Khai báo thư viện sử dụng icon     -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- Thư viện recaptcha-->
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <!-- Khai báo thư viện nhập liệu văn bản     -->
+    <script src="~/Scripts/ckeditor/ckeditor.js" type="text/javascript"></script>
+    <script src="~/Scripts/ckeditor/config.js" type="text/javascript"></script>
+    <script src="~/Scripts/ckeditor/styles.js" type="text/javascript"></script>
+    <!-- Khai báo thư viện Jquery     -->
+    <script src="~/Scripts/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
+    <script src="~/Scripts/MicrosoftMvcAjax.js" type="text/javascript"></script>
+    <script src="~/Scripts/MicrosoftMvcValidation.debug.js" type="text/javascript"></script>
+    <!-- Khai báo thư viện main menu     -->
+    <link href="~/Content/CSS3%20Menu_files/css3menu1/styleMenu.css" rel="stylesheet" />
+    <script>                // //lưu vị trí thanh cuộn scroll khi load trang
+        document.addEventListener("DOMContentLoaded", function (event) {
+            var scrollpos = localStorage.getItem('scrollpos');
+            if (scrollpos) window.scrollTo(0, scrollpos);
+        });
+
+        window.onbeforeunload = function (e) {
+            localStorage.setItem('scrollpos', window.scrollY);
+        };
+    </script>
+</head>
+<body id="Body">
+    <div id="fb-root"></div>    @*2 dòng này là thư viện trực tuyến để chèn comment facebook*@
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v12.0" nonce="myBVxJ7t"></script>
+
+    <div id="wapper">
+        <div id="TopPage">
+            <div id="LienHe">
+                <div style="float: left">
+                    THƯ VIỆN - THÔNG TIN
+                </div>
+                <div style="float: right; padding-right: 20px; color: #ffffff; font-size: 18px; text-decoration: none">
+                    @if (Session["Permission"].ToString() != "3") 
+                    {
+                        <a href="@Url.Action("LoginHome", "Login")" style="text-decoration: none; color: #ffffff"><span><i class="fas fa-sign-in-alt"></i> Đăng nhập</span></a>
+                        <a href="@Url.Action("DKTaiKhoan", "Account")" style="text-decoration: none; color: #ffffff"><span><i class="fas fa-user-plus"></i> Đăng ký</span></a>
+                    }
+                    else
+                    {
+                        <p>Xin chào @Session["Fullname"], <a href="@Url.Action("DangXuat", "Login")" style="text-decoration: none; color: #ffffff"><span><i class="fas fa-sign-out-alt"></i> Đăng xuất</span></a></p>
+                    }
+                </div>
+            </div>
+        </div>
+        <div id="Banner">
+            <div id="logo">
+                <img src="~/Content/anh/taiLieu.PNG" width="275" height="100"
+                     alt="Logo cổng tài liệu điện tử Trường Đại học Đồng Tháp" />
+            </div>
+            <div id="Banner">
+                <b style="color:#d21404; font-size: 22px; text-align:center; padding-right: 200px">
+                    CỔNG TÀI LIỆU ĐIỆN TỬ - CNTT <br />
+                    <p style="color: #3e4283">TRƯỜNG ĐẠI HỌC ĐỒNG THÁP</p>
+                </b> <br />
+                <p style="color: #3e4283;  font-size: 15px; text-align: center; padding-right:180px; float: right"> Chia sẻ, cùng nhau xây dựng  - Phát triển, nền tảng bền vững</p>
+            </div>
+        </div>
+        <div id="MainMenu">
+            @Html.Raw(Session["menuTaiLieu"])
+            <div style="float: right; padding-right: 10px; padding-top: 9px">
+                @using (Html.BeginForm("timKiem", "TimKiem", FormMethod.Get))
+                {
+                    <input name="Key" type="text" size="23" placeholder="Nhập tên tài liệu" />
+                    <button type="submit">
+                        Tìm kiếm
+                    </button>
+                }
+            </div>
+        </div>
+        @RenderSection("Slider", true)
+    <div id="Contents">
+        <div class="SubMenuTrai">
+            <ul>
+                <li style="background-color: #a9a9e1">
+                    @Html.ActionLink("Trang chủ", "index", "Home")
+                </li>
+                <li>
+                    @Html.ActionLink("Giới thiệu", "GioiThieu", "Home")
+                    <ul class="SubMenu2">
+                        <li>@Html.ActionLink("Về MIT", "veMIT", "Home")</li>
+                    </ul>
+                </li>
+                <li>
+                    <hr id="duongKeMenu" />
+                    @Html.ActionLink("Bộ môn", "boMon", "Home")
+                    <ul class="SubMenu2">
+                        <li>
+                            @Html.ActionLink("Công nghệ thông tin", "cntt", "Home")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Sư phạm toán học", "spToan", "Home")
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <hr id="duongKeMenu" />
+                    <a href="http://tuyensinh.dthu.edu.vn/">Tuyển sinh 2021</a>
+                </li>
+
+                <li>
+                    <hr id="duongKeMenu" />
+                    <a href="http://thuvien.dthu.edu.vn/pages/cms/wpid-home.html">Thư viện</a>
+                </li>
+                <li>
+                    <hr id="duongKeMenu" />
+                    <a href="https://www.dthu.edu.vn/lists.aspx?idmn=179"> Việc làm sinh viên</a>
+                </li>
+                <li>
+                    <hr id="duongKeMenu" />
+                    @Html.ActionLink("Xem tài liệu", "TaiLieu", "Home")
+                </li>
+                <li>
+                    <hr id="duongKeMenu" />
+                    @Html.ActionLink("Diễn đàn hỏi đáp lập trình", "index", "DienDan")
+                </li>
+            </ul>
+        </div>
+        <div id="Content">
+            @RenderBody()
+        </div>
+        <a href="http://congtailieudientudthu.somee.com/DienDan" style="float: left; margin-left: 20px"><img src="~/Content/anh/diendan.PNG" width="300" height="150" /></a>
+
+        <iframe style="margin-left: 50px" width="560" height="315" src="https://www.youtube.com/embed/2I8ai91BkNM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        <div id="HotNews">
+            <h3>
+                Tài liệu Hot
+            </h3>
+            <a href="#">Thông tin 1</a>
+            <a href="#">Thông tin 2</a>
+            <a href="#">Thông tin 3</a>
+            <a href="#">Thông tin 4</a>
+            <a href="#">Thông tin 5</a>
+        </div>
+    </div>
+        <div id="Bottom">
+
+            <div id="huongDanHoTro">
+                <p>
+                    <a href="#">
+                        Hướng dẫn và thắc mắc khi sử dụng Website
+                    </a>
+                </p>
+            </div>
+            <div id="chinhSachChung">
+                <p>
+                    Hoạt động khác
+
+                    Hội thi tay nghề
+                    Câu lạc bộ nghiên cứu
+                    Sinh viên tình nguyện
+                    Cựu sinh viên
+                    Kết nối doanh nghiệp
+                </p>
+            </div>
+
+            <div id="thongTin">
+                <p>
+                    Trường Đại học Đồng Tháp
+                </p>
+            </div>
+
+            <div id="dangKyNhanTin">
+                <p>
+                    Đăng ký nhắn tin
+                </p>
+            </div>
+            <div style="padding-left: 20px; padding-bottom: 20px">
+                @if (Session["Permission"].ToString() == "3")
+                {
+                        <p>Account: @Session["Username"] <br /> Permission: @Session["Permission"]</p>                   
+                }
+            </div>
+            <div id="veChungToi">
+                <hr id="duongKeBottom" />
+                Bản quyền &copy; (2021)
+                <br />
+                Được phát triển bởi <b>
+                    Dương Tấn Thành
+                </b>
+                Email: <a href="#">
+                    duongthanh6959@gmail.com
+                </a>
+            </div>
+            <div style="float: right; min-height: 20px; padding-right: 20px">
+                <p>Tổng lưu lượng truy cập: @Session["boDiem"]</p>
+            </div><br /><br>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,196 @@
+﻿body {
+    background-color: #cbeec3;
+}
+
+* {
+    font-family: Arial, 'Times New Roman';
+    text-decoration: none;
+    list-style-type: none;
+}
+
+#Wapper {
+    width: 1050px;
+    min-height: 100px;
+    margin: 0px auto;
+    background-color: #a1f59e;
+}
+
+#Banner {
+    width: 1010px;
+    min-height: 50px;
+    float: left;
+    background-color: #ab7979;
+    padding: 20px;
+}
+
+    #Banner a {
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 24px;
+        padding: 10px;
+    }
+
+    #Banner i {
+        float: right;
+        padding: 10px;
+        background-color: #b48a8a;
+        margin: 5px;
+    }
+
+#Contents {
+    width: auto;
+    min-height: 450px;
+    background: #ffffff;
+    float: left;
+}
+
+#MainControl {
+    width: 200px;
+    min-height: 550px;
+    float: left;
+    background-color: #c7bdf0;
+    color: #000000;
+}
+
+#User {
+    width: 145px;
+    height: 100px;
+    font-weight: bold;
+    background-color: #a1f59e;
+    color: #5967bd;
+    font-size: 20px;
+    padding-top: 25px;
+    padding-left: 15px;
+}
+
+#Dashboard {
+    padding-top: 35px;
+    padding-left: 10px;
+}
+
+    #Dashboard a {
+        color: #000000;
+        display: block;
+        padding: 10px;
+    }
+
+        #Dashboard a:hover {
+            color: #000000;
+            background-color: #93a6e4;
+        }
+
+#Content {
+    width: 750px;
+    min-height: 50px;
+    background-color: #f0f5f8;
+    float: left;
+    padding: 20px;
+    margin: 30px;
+}
+
+#Bottom {
+    padding-top: 40px;
+    width: 1050px;
+    height: 150px;
+    background-color: #272222;
+    color: #ffffff;
+    text-align: center;
+    float: left;
+}
+
+#Tua {
+    text-align: center;
+    color: #5967bd;
+    font-weight: bold;
+    font-size: 30px;
+    padding-bottom: 50px;
+}
+
+#TuaLish {
+    font-weight: bold;
+    color: #5967bd;
+}
+
+#Bang {
+    border: 1px solid #000000;
+    padding: 0px;
+    margin: 0px;
+    width: 700px;
+}
+
+    #Bang td {
+        padding: 4px;
+    }
+
+    #Bang th {
+        border: 1px solid #000000;
+        background-color: #8ca3ea;
+        text-align: center;
+    }
+
+#btXuLyTrai {
+    border-radius: 10px;
+    display: block;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #b6e2ee;
+    float: left;
+    font-size: 20px;
+}
+
+#btXyLyTrai a:hover {
+    background-color: #ec6e6e;
+}
+
+#btXuLyPhai {
+    border-radius: 10px;
+    display: block;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #b6e2ee;
+    float: right;
+    font-size: 20px;
+}
+
+#btXyLyPhai a:hover {
+    background-color: #ec6e6e;
+}
+
+#phanTrang {
+    width: 1000px;
+    height: 30px;
+}
+
+    #phanTrang li {
+        list-style: none;
+        float: left;
+        padding: 3px 5px;
+        margin: 5px;
+        border: 1px solid #ccc;
+    }
+
+        #phanTrang li:active {
+            background-color: #3366FF;
+        }
+
+            #phanTrang li:active a {
+                color: white;
+            }
+
+#input {
+    font-size: 18px;
+    color: #ec6e6e;
+    padding: 8px;
+    font-weight: bold;
+    float: right;
+}
+
+.tua-dang-nhap {
+    text-align: center;
+    font-size: 26px;
+    color: #262261;
+    background-color: #cdbae5;
+    border-radius: 5px;
+}

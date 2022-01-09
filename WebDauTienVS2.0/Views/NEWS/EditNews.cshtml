@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "EditNews";
+    Layout = "~/Views/Share/_LayoutMainControl.cshtml";
+}
+@model WebDauTienVS2._0.Models.NEWS
+<button id="btXuLyTrai">
+    @Html.ActionLink("Trở về", "DanhSachNews", "NEWS")
+</button>
+<h2 id="Tua">Chỉnh sửa tin tức</h2>
+@using (Html.BeginForm("EditNews", "NEWS"))
+{
+    <p>Thời gian đăng tin: @ViewBag.CreaData</p>
+    if (ViewBag.ModiData != null) { 
+        <p>Thời gian cập nhật tin: @ViewBag.ModiData</p>
+    }
+    
+    <textarea class="ckeditor" cols="80" id="editor1" name="editor1" rows="7">
+        @Html.Raw(ViewBag.context)
+    </textarea>
+    <br />
+    <input id="input" type="submit" value="LƯU TIN" />
+    <br />
+    <br /> 
+}
+@Html.Raw(ViewBag.context)
+
+<script language="javascript" type="text/javascript">
+    CKEDITOR.replace('editor',
+        {
+            filebrowserImageBroweUrl: '/Scripts/ckfinder/ckfinder.html?type=UploadedImage',
+            filebrowerUploadUrl: '/Scipts/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=File',
+            filebrowerImageUrl: 'Upload/Images'
+        });
+</script>

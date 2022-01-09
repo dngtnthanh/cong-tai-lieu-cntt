@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "AskQuestion";
+    Layout = "~/Views/Share/_LayoutFirst.cshtml";
+}
+@section Slider{
+    <div id="SliderGioiThieu">
+    </div>
+}
+<h2 id="Tua">Đặt câu hỏi</h2>
+
+@using (Html.BeginForm("AskQuestion", "DienDan"))
+{
+    <table>
+        <tr>
+            <td>Tựa đề: </td>
+            <td><input name="Title" size="98" required placeholder="Không được để trống" /></td>
+        </tr>
+        <tr>
+            <td>Nội dung:</td>
+            <td><textarea name="Reply" required placeholder="Nhập câu hỏi của bạn" cols="75" rows="5"></textarea></td>
+        </tr>
+    </table>
+    <br />
+    <input id="btXuLyPhai" type="submit" value="Gửi câu hỏi" />
+}

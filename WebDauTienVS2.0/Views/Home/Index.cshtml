@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Share/_LayoutFirst.cshtml";
+}
+@section Slider{
+    <div id="Slider">
+    </div>
+}
+@using WebDauTienVS2._0.Models;
+@model PagedList.IPagedList<WebDauTienVS2._0.Models.NEWS>
+@using PagedList.Mvc;
+<div style="float: right">
+    @using (Html.BeginForm("timKiemNEWS", "TimKiem", FormMethod.Get))
+    {
+        <input name="Key" type="text" size="30" placeholder="Nhập tin tức" />
+        <button type="submit">
+            Tìm kiếm
+        </button>
+    }
+</div><br />
+    @if (Model != null)
+{
+        foreach (var item in Model)
+        {
+            
+            <div class="ThongBao">
+                <hr class="ThongBaoGach"/>
+                <div class="ThongBaoTop" style="text-transform: uppercase">
+                    @Html.ActionLink(item.Title, "View_TinTuc_Home", "NEWS", new { id = item.ID_NEW },  new { @class = "link" })
+                </div>
+                <div class="ThongBaoNoiDung">
+                    <div style="float: left; text-indent: 30px">
+                        @Html.Raw(item.Sumary)
+                    </div>
+                </div>
+                <img style="width: 335px; height: 135px; float: left; float: left" src="~/Uploads/NEWS/@item.image" />
+
+               <pre style="line-height: 14px">
+                   @if (item.ModiData != null){
+                         <i style="font-size: 12px; float: right">Chỉnh sửa: @item.ModiData</i>
+                   }
+                   <i style="font-size: 12px; float: right"> Ngày đăng: @item.CreaData</i>
+                   <i style="font-size: 12px; float: right"> Người đăng: @item.Username</i>
+
+               </pre>  
+            </div>         
+        }
+}
+<div id="phanTrang" style="float: left">
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { id = page }))
+</div><br /><br />
+<h2 id="Tua">Diễn đàn hỏi đáp lập trình</h2>
+<pre  style="font-size: 16px; font-family: Tahoma">
+    Với tinh thần <i>"Chia sẻ, cùng nhau xây dựng - Phát triển, nền tảng bền vững"</i> Vì thế, nhằm giúp các bạn
+sinh viên có thể dễ dàng tiếp cận việc học lập trình được nhanh hơn. Đây là nơi mọi người có thể đặt các câu
+hỏi về các lỗi khi lập trình hoặc có thể giải đáp lỗi cho người khác. Mỗi đóng góp sửa lỗi có ích, sẽ nhận được
+lượt Like tương xứng, góp phần đánh giá khả năng lập trình trong Profile của bạn.
+</pre><br />
+<button id="btXuLyTrai">
+    @Html.ActionLink("Truy cập vào diễn đàn", "Index", "DienDan")
+</button><br /><br /><br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

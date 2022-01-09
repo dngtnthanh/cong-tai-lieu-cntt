@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "TaiLieu";
+    Layout = "~/Views/Share/_LayoutFirst.cshtml";
+}
+@section Slider{
+    <div id="SliderGioiThieu">
+    </div> 
+}
+@model PagedList.IPagedList<WebDauTienVS2._0.Models.PageItem>
+@using PagedList.Mvc;
+@using WebDauTienVS2._0.Models;
+<div id="Content" >
+    <h2 id="Tua">Tài liệu</h2>
+    <button id="btXuLyTrai" style=" font-size: 20px">
+        <i  class="fas fa-search"></i> @Html.ActionLink("Tra cứu tài liệu", "timKiem", "TimKiem")
+    </button><br /><br />
+    @Html.Raw(Session["menuTaiLieu"])
+    @using (Html.BeginForm("TaiLieu", "Home"))
+{     
+    <br />
+    <table id="Bang" style="background-color: #e2f5f3">
+
+        <tr><th>ID</th><th>TÊN</th><th>TÊN FILE</th><th>XEM</th></tr>
+        @*@foreach(var m in Model)*@
+        @foreach (PageItem m in ((ViewBag.taiLieu) as IEnumerable<PageItem>))
+        {
+            <tr>
+                <td>@m.ID_P</td>
+                <td>@m.Title</td>
+                <td>@m.Name_File</td>
+                <td>@Html.ActionLink("Xem", "ViewTaiLieu_Page", "Home", new { id = m.ID_P }, new { @class = "link" })</td>
+
+            </tr>
+        }
+    </table><br />
+}  <button id="btXuLyPhai" style="font-size: 20px">
+       <i class="fas fa-file-alt"></i> @Html.ActionLink("Xem tất cả tài liệu demo", "DSTaiLieu", "Home") 
+   </button>
+   <button id="btXuLyTrai">      
+       <span> <i style="font-size: 18px" class="fas fa-hand-holding"></i> @Html.ActionLink("Đóng góp tài liệu", "DongGopTaiLieu", "Home") </span>
+   </button><br /><br />
+</div>
+@*<div id="phanTrang" style="float: left">
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("TaiLieu", new { id = page }))
+</div>*@

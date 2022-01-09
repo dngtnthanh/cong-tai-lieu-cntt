@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "ViewTaiLieu_Page";
+    Layout = "~/Views/Share/_LayoutFirst.cshtml";
+}
+@section Slider{
+    <div id="SliderGioiThieu">
+    </div> 
+}
+@model WebDauTienVS2._0.Models.PageItem
+@using WebDauTienVS2._0.Models;
+<h2 id="Tua">Xem tài liệu </h2>
+<button id="btXuLyTrai">
+   <i class="fas fa-arrow-left"></i> @Html.ActionLink("Trở về", "DSTaiLieu", new { @class = "link"})
+</button>
+<button id="btXuLyPhai"><i class="fas fa-hand-holding-usd"></i> @Html.ActionLink("Thanh toán", "Index", "ThanhToan")</button><br /><br />
+<table id="Bang" style="background-color: #e2f5f3">
+    <tr>
+        <td>Tên tài liêu: </td><td><b>@Html.DisplayFor(Model => Model.Title)</b></td>
+    </tr>
+    <tr>
+        <td>Tên file: </td><td><b>@Html.DisplayFor(Model => Model.Name_File)</b></td>
+    </tr>
+    <tr>
+        <td>Người đăng: </td><td><b>@Html.DisplayFor(Model => Model.Username)</b></td>
+    </tr>
+    <tr>
+        <td>Liên hệ: </td>
+    </tr>
+</table>
+@*<i class="fas fa-qrcode"></i> @Html.ActionLink("Chia sẽ QR code", "QRcode", "Home", new { id =  @Html.DisplayFor(Model => Model.ID_P)})*@
+<br />
+<embed src="~/Uploads/@Html.DisplayFor(Model => Model.ID_File)" target="_blank" width="800px" height="900px" />
+<div class="fb-comments" data-href="http://congtailieudientudthu.somee.com/Home/ViewTaiLieu_Page/@Html.DisplayFor(Model=>Model.ID_P)" data-width="750" data-numposts="5"></div>

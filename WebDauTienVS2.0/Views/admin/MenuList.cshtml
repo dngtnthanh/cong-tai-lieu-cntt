@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Tùy chỉnh menu";
+    Layout = "~/Views/Share/_LayoutMainControl.cshtml";
+}
+
+<h2 id="Tua">Quản lý Menu</h2>
+@model WebDauTienVS2._0.Models.Menus
+@using WebDauTienVS2._0.Models;
+@using (Html.BeginForm())
+{
+    <div style="float: right">
+        @Html.DropDownList("ID_MN", new SelectList(ViewBag.parents, "ID_MN", "Lable", ViewBag.parent))
+        <button id="btXuLyPhai" type="submit">Tìm</button>
+    </div>
+    <div>
+        <button id="btXuLyTrai">
+            <i class="fas fa-plus-square"></i>  @Html.ActionLink("Thêm menu", "AddMenu", "admin")<br />
+        </button>
+    </div>
+    <br />
+    <table id="Bang">
+        <tr><th>ID</th><th>LABEL</th><th>URL</th><th>VIEW</th><th>EDIT</th><th>DELETE</th></tr>
+        @foreach (Menus m in ((ViewBag.menus) as IEnumerable<Menus>))
+        {
+            <tr>
+                <td>@m.ID_MN</td>
+                <td>@m.Lable</td>
+                <td>@m.UrLink</td>
+                <td>@Html.ActionLink("View", "ViewMenu", new { id = m.ID_MN }, new { @class = "link" })</td>
+                <td>@Html.ActionLink("Edit", "EditMenu", new { id = m.ID_MN }, new { @class = "link" }) </td>
+                <td>
+                    @Html.ActionLink("Xóa Menu", "DeleteMenu", "admin", new { id = m.ID_MN },
+                                     new { onClick = "return confirm('Xóa thật')" })
+                </td>
+            </tr>
+        }
+    </table>
+}

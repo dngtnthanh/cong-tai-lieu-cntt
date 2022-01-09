@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Share/_LayoutFirst.cshtml";
+}
+@section Slider{
+    <div id="SliderGioiThieu">
+    </div>
+}
+@model WebDauTienVS2._0.Models.Acount
+@using WebDauTienVS2._0.Models;
+<div id="profile">
+    <div id="profile-Tua">
+        <b>Profile</b>
+    </div>
+    <div id="profile-anhTenEmail">
+        <img id="profile-avatar" src="~/Uploads/Avarta/@Html.DisplayFor(Model => Model.Avatar)" />
+        <div id="profile-name">
+            @Html.DisplayFor(Model => Model.Fullname) @Html.Raw(ViewBag.Confirm)
+        </div>
+        <div id="profile-email">
+            <i class="fas fa-envelope"></i> @Html.DisplayFor(Model => Model.Email)
+        </div>
+    </div>    
+</div>
+<div id="introduce">
+    <p><i class="fas fa-calendar-alt"></i> Joined: @Html.DisplayFor(Model => Model.Join)</p>
+    @Html.DisplayFor(Model => Model.Introduce_Yourself)
+</div>
+@*<i class="fab fa-dev"></i>  logo DEV *@
+<div id="achievements">
+    <i class="far fa-thumbs-up"></i> Lượt like: @Html.DisplayFor(Model => Model.Likes) <i class="far fa-thumbs-down"></i> Lượt Dislike: @Html.DisplayFor(Model => Model.Dislikes) <i class="fas fa-trophy"></i> Phần thưởng: @Html.DisplayFor(Model => Model.Cups)
+</div>
+
+
+
