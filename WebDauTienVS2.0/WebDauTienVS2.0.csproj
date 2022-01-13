@@ -677,7 +677,6 @@
     <Folder Include="Uploads\Avarta\" />
     <Folder Include="Uploads\NEWS\" />
     <Folder Include="Uploads\QRcode\" />
-    <Folder Include="Views\QuanLyDanhMucTL\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -7,7 +7,6 @@ using WebDauTienVS2._0.Models;
 using System.IO;
 using PagedList;
 
-//using PagedList;
 namespace WebDauTienVS2._0.Controllers
 {
     public class adminController : Controller

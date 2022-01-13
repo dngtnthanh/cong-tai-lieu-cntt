@@ -42,6 +42,7 @@ namespace WebDauTienVS2._0
             Session["boDiem"] = boDiem.Traffic.ToString();      //Tổng lượt truy cập website
 
             context.SubmitChanges();
+            
         }
     }
 }
